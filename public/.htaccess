@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+     # enables the Apache mod_rewrite engine
+     RewriteEngine On
+     # sets the base URL for the rewrite rules, so all of the following rules will be relative to this base.
+     RewriteBase /xpensy/public
+     # checks if the requested URL is not a directory
+     # If it is not a directory, the next rule will be applied.
+     RewriteCond %{REQUEST_FILENAME} !-d
+     # checks if the requested URL is not a file. 
+     # If it is not a file, the next rule will be applied.
+     RewriteCond %{REQUEST_FILENAME} !-f
+     
+     # matches any request that is not a directory or a file and rewrites it to "index.php"
+     RewriteRule ^ index.php [L]
+</IfModule>

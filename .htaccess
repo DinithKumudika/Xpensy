@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+     # enables the Apache mod_rewrite engine
+     RewriteEngine on
+     # rewrite web root to the public folder and redirect every request to the "public" directory
+     # The [L] flag at the end tells Apache to stop processing rules if this rule is matched.
+     RewriteRule ^$ public/ [L]
+     # matches any string (.*) and rewrites it to "public/string"
+     RewriteRule (.*) public/$1 [L]
+</IfModule>
